@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(186, 226, 235, 1) 100%
+    );
+}
+
+.music-container {
+    background-color: #fff;
+    display: flex;
+    position: relative;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 1px 5px 20px 0px rgb(24 110 110);
+    z-index: 10;
+}
+
+.img-container {
+    width: 110px;
+    position: relative;
+    margin: 0rem;
+}
+
+.img-container img {
+    width: inherit;
+    height: 110px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-container.play img {
+    animation-play-state: running;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+span {
+    margin: 0.2rem 2rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+i {
+    color: rgba(128, 128, 128, 0.507);
+    cursor: pointer;
+}
+
+.music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 30px 10px 10px 150px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+}
+
+.music-container.play .music-info {
+    opacity: 100%;
+    transform: translateY(-100%);
+}
+
+.progress-container {
+    height: 5px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: rgb(53, 105, 105);
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 425px) {
+    .music-container {
+        transform: scale(0.8);
+    }
+}
+
+h4 {
+    font-family: 'Poppins', sans-serif;
+}
